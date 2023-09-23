@@ -1,0 +1,41 @@
+class Agenda:
+    def __init__(self):
+        self.eventos = []
+
+    def agregar_evento(self, fecha, evento):
+        self.eventos.append({"Fecha": fecha, "Evento": evento})
+
+    def ver_eventos(self):
+        if not self.eventos:
+            print("No hay eventos en la agenda.")
+        else:
+            print("Eventos en la agenda:")
+            for idx, evento in enumerate(self.eventos, start=1):
+                print(f"{idx}. Fecha: {evento['Fecha']} - Evento: {evento['Evento']}")
+
+def main():
+    mi_agenda = Agenda()
+
+    while True:
+        print("\nMenú:")
+        print("1. Agregar evento")
+        print("2. Ver eventos")
+        print("3. Salir")
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            fecha = input("Ingrese la fecha (DD/MM/AAAA): ")
+            evento = input("Ingrese el evento: ")
+            mi_agenda.agregar_evento(fecha, evento)
+            print("Evento agregado exitosamente.")
+        elif opcion == "2":
+            mi_agenda.ver_eventos()
+        elif opcion == "3":
+            print("Saliendo de la agenda. ¡Hasta luego!")
+            break
+        else:
+            print("Opción no válida. Por favor, seleccione una opción válida.")
+
+if __name__ == "__main__":
+    main()
